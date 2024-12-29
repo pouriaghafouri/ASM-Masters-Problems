@@ -1,0 +1,39 @@
+Error Function
+
+You are given n floating point numbers (x_1, x_2, x_3, ..., x_n)
+For each x_i, calculate erf(x_i) where erf is the [error function](https://en.wikipedia.org/wiki/Error_function)
+using the `erf` function from c's standard library
+
+
+Input:
+The first line contains n
+The next n lines contain n ieee-754 double precision floating points encoded
+in hex (16 hex digits to be exact, see sample input and output)
+
+
+Output:
+For each of the n numbers, output the result of the error function in the
+same format as input.
+
+
+Constraints:
+1 <= n <= 100000
+
+Sample:
+
+input 0:
+```
+2
+3ff0000000000000
+0000000000000000
+```
+
+output 0:
+```
+3feaf767a741088b
+0000000000000000
+```
+
+
+Note: The first value in input corresponds to 1.0 and first value in output
+is roughly equal to 0.842701

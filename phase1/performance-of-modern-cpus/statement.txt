@@ -1,0 +1,59 @@
+The Performance of Modern CPUs
+
+
+You are given a sequence of integers named A = [a_1, a_2, a_3, ..., a_n].
+You should perform q queries, each of one of the three types:
+
+Type 1:
+	Given l, r and x, perform:
+	a_i := (a_i + x) % 65536 for l <= i <= r
+Type 2:
+	Given l, r and x, perform:
+	a_i := a_i ^ x (^ denotes xor)
+Type 3:
+	Given l and r, find:
+	min(a_i) for l <= i <= r
+
+Note: While any correct solution is acceptable, the goal of this problem is
+to make a solution with O(nq) time complexity that is fast enough to fit in
+the time limit.  It is advised to have a look at Intel's vector extensions.
+
+
+Input:
+The first line contains an integer: n
+The second line contains n integers: a_1, a_2, ..., a_n
+The third line contains an integer: q
+The following q lines contain description of queries:
+	If the query is of type 1, the line contains four integers: 1 l r x
+	If the query is of type 2, the line contains four integers: 2 l r x
+	If the query is of type 2, the line contains three integers: 3 l r
+
+
+Output:
+For each query of type 3, output the calculated minimum value
+
+
+Constraints:
+16 <= n <= 100,000
+1 <= q <= 100,000
+0 <= a_i, x <= 65535
+1 <= l <= r <= n
+r-l+1 (length of a query's interval) is a multiple of 16
+
+
+Sample:
+
+input 0:
+```
+16
+1 1 1 1 2 2 2 2 4 4 4 4 8 8 8 8
+3
+1 1 16 2
+2 1 16 8
+3 1 16
+```
+
+output 0:
+```
+2
+```
