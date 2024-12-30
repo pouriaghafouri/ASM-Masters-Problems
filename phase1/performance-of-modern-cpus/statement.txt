@@ -35,7 +35,7 @@ For each query of type 3, output the calculated minimum value
 
 Constraints:
 16 <= n <= 100,000
-1 <= q <= 100,000
+1 <= q <= 300,000
 0 <= a_i, x <= 65535
 1 <= l <= r <= n
 r-l+1 (length of a query's interval) is a multiple of 16
