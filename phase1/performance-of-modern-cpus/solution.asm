@@ -168,7 +168,7 @@ main:
 	lea	rdi, [sd]
 	lea	rsi, [rsp]
 	mycall	scanf wrt ..plt
-	mov	r8, [rsp]
+	mov	r8d, [rsp]
 	lea	r9, [perform]
 .loop:
 	mycall	read_query
