@@ -272,8 +272,8 @@ int main(int argc, char **argv)
 		/* Get system call result */
 		struct user_regs_struct regs1;
 		if (ptrace(PTRACE_GETREGS, child, 0, &regs1) == -1) {
-			if (syscall == SYS__exit || syscall == SYS_exit_group) {
-				iprintf("normal exit with code %llu\n", regs0.rdi);
+			if (errno == ESRCH) {
+				iprintf("normal exit with code %llu\n", regs0.rdi & 0xff);
 				exit(regs0.rdi); // system call was _exit(2) or similar
 			}
 			err("ptrace reg 2");
