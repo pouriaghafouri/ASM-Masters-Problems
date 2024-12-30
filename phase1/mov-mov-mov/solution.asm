@@ -1,7 +1,3 @@
-section .rodata
-sfmt:	db "%ld%ld", 0
-pfmt:	db "%ld", 10, 0
-
 section .bss
 zero:	resb 8
 X:	resb 8
@@ -30,10 +26,8 @@ subc:
 
 section .text
 
-extern printf
-extern scanf
-
-foo:
+global mov_sub
+mov_sub:
 	mov	[X], rdi
 	mov	[Y], rsi
 	mov	rax, [zero]
@@ -48,31 +42,7 @@ foo:
 	mov	[ans + i], al
 %assign i i+1
 %endrep
-	mov	rax, [ans]
-	ret
-
-global main
-main:
-	push	rbp
-	mov	rbp, rsp
-	sub	rsp, 16
-
-	lea	rdi, [sfmt]
-	lea	rsi, [rsp]
-	lea	rdx, [rsp+8]
-	call	scanf
-
-	mov	rdi, [rsp]
-	mov	rsi, [rsp+8]
-	call	foo
-
-	lea	rdi, [pfmt]
-	mov	rsi, rax
-	call	printf
-
-	add	rsp, 16
-	pop	rbp
-	xor	eax, eax
+	mov	rdi, [ans]
 	ret
 
 section .note.GNU-stack
