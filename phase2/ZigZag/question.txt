@@ -1,1 +1,1 @@
-Swim between bytes and enter correct number!
+Swim between bytes and enter the correct number!
