@@ -16,7 +16,7 @@ int main() {
     srand(time(0));
     auto flagidx = rand() % 4096;
     auto flagptr = memry[flagidx];
-    *(long long *)flagptr = 0xACE0F1A6E;
+    *(long long *)flagptr = 0xace0f1a6;
     auto x = rand() % 64;
     auto y = rand() % 64;
     auto i = rand() % 4096;
@@ -25,10 +25,8 @@ int main() {
     auto p1 = 63;
     auto p2 = 63 * 64;
     auto p3 = 4095 * 64 * 64;
-    std::cout << "h1 : " << (rand() & ~p1 | x) << std::endl;
-    std::cout << "h2 : " << (rand() & ~p2 | y * 64) << std::endl;
-    std::cout << "h3 : " << (rand() & ~p3 | i * 64 * 64) << std::endl;
-    std::cout << "h4 : " << memry.data() << std::endl;
+    std::cout << "h1 : " << (x | y * 64 | i * 64 * 64) << std::endl;
+    std::cout << "h2 : " << memry.data() << std::endl;
 
     auto dsp = (memry.data() + i);
     auto ds = *dsp;
@@ -42,6 +40,8 @@ int main() {
     while (1) {
         unsigned long x1;
         scanf("%lx", &x1);
-        printf("%lx\n", *(unsigned long *)x1);
+        printf("0x%lx\n", *(unsigned long *)x1);
+        if (x1 == (unsigned long)flagptr)
+            printf("yay! our flag is the last line including 0x\n");
     }
 }
