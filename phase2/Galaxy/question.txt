@@ -1,0 +1,2 @@
+The password is so easy :(, password should be ASM{TEAM_<Your TeamNumber>}
+e.g: ASM{TEAM_13}
