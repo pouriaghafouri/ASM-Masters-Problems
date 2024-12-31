@@ -3,7 +3,7 @@
 __attribute__((naked))
 long call_mov_sub(long x, long y)
 {
-	asm(
+	__asm__(
 	"push	%rbx\n\t"
 	"push	%rbp\n\t"
 	"push	%r12\n\t"
