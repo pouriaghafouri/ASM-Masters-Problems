@@ -18,7 +18,7 @@ def generate_test_cases():
 
     # Generate 50 YES cases
     for _ in range(51):
-        root = random.randint(0, int(math.sqrt(10000)))
+        root = random.randint(0, 10000)
         test_input = root * root
         test_cases.append((test_input, "YES"))
 
