@@ -29,10 +29,10 @@ test_cases = []
 
 while outside_count < total_cases or inside_count < total_cases or touch_count < total_cases:
     # Randomly generate positions and radii for two circles
-    x1, y1 = random.randint(-100, 100), random.randint(-100, 100)
-    r1 = random.randint(1, 50)
-    x2, y2 = random.randint(-100, 100), random.randint(-100, 100)
-    r2 = random.randint(1, 50)
+    x1, y1 = random.randint(-1000, 1000), random.randint(-1000, 1000)
+    r1 = random.randint(1, 1000)
+    x2, y2 = random.randint(-1000, 1000), random.randint(-1000, 1000)
+    r2 = random.randint(1, 1000)
 
     # Calculate the state
     result = circle_state(x1, y1, r1, x2, y2, r2)
