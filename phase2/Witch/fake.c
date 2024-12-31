@@ -3,7 +3,7 @@
 #include <time.h>
 
 void print_flag(){
-    char flag[] = "ASM{C0ng7@tu1@ti#n5_N30}";
+    char flag[] = "ASM{f4k3_fl4g}";
     printf("%s\n", flag);
 }
 
