@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-char a[] = {'A','X','M','F','S','C','c','H','R','E','_','8','1','3','p','4','E','I','f','n','4','C','}',0};
-char b[] = {'H','S','X','{','v','3','V','U','Z','3','Q','S','w','m','R','L','C','_','5','L','K','G',0,0};
+char a[] = {'A','X','M','F','_','C','_','H','_','E','_','8','_','3','A','4','E','I','F','n','A','C','}',0};
+char b[] = {'H','S','X','{','v','_','V','_','Z','_','Q','_','w','F','R','K','C','_','5','L','K','G',0,0};
 
 void get_flag(char *str, unsigned long input){
     long int sum = 0xdeadbeef;
