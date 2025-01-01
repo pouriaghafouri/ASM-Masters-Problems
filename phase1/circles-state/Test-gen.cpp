@@ -8,25 +8,6 @@
 #include <string>
 #include <vector>
 
-int check(int _x1, int _x2, int _y1, int _y2, int _r1, int _r2) {
-
-    float x1 = _x1, x2 = _x2, y1 = _y1, y2 = _y2, r1 = _r1, r2 = _r2;
-
-    float d = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-    d = sqrtf(d);
-    float del = r1 - r2;
-    if (del < 0)
-        del = -del;
-    float sum = r1 + r2;
-
-    if (d < del)
-        return 0;
-    else if (d > sum)
-        return 1;
-    else
-        return 2;
-}
-
 int check_int(int x1, int x2, int y1, int y2, int r1, int r2) {
 
     int d = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
@@ -35,7 +16,7 @@ int check_int(int x1, int x2, int y1, int y2, int r1, int r2) {
     int sum = r1 + r2;
     sum *= sum;
 
-    if (d <= del)
+    if (d < del)
         return 0;
     else if (d > sum)
         return 1;

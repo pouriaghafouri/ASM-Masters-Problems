@@ -33,12 +33,12 @@ main:
     imul rcx, rcx ; rcx = (r1 - r2)2
 
     mov rdx, [r1]
-    add rdx, [r1]
+    add rdx, [r2]
     imul rdx, rdx ; rdx = (r1 + r2)2
 
     
     cmp rax, rcx
-    jle prin
+    jl prin
     cmp rax, rdx
     jg prout
 
