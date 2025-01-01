@@ -97,11 +97,10 @@ int main()
 {
     char serial[128];
     printf("Enter the serial number: ");
-    fgets(serial, sizeof(serial), stdin);
-    serial[strcspn(serial, "\n")] = 0;
+    scanf("%127s", serial);
     if (check_oem_key(serial, sizeof(serial)))
-        puts("Product activated!");
+        printf("Product activated!\n");
     else
-        puts("Invalid activation code!");
+        printf("Invalid activation code!\n");
     return 0;
 }
