@@ -14,7 +14,7 @@ long long int get_number(){
 
 int main(){
     srand(time(0) / 5);
-    printf("Enter to password: ");
+    printf("Enter the password: ");
     long long int number = get_number();
     long long int input;
     scanf("%lld", &input);
