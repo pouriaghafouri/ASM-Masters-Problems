@@ -11,11 +11,14 @@ bool mod7_check(const char *param_1)
     return sum % 7 == 0;
 }
 
-int PersonalProductKeyCheck(char *param_1)
+int PersonalProductKeyCheck(const char *param_1)
 {
     char digits[4] = {0};
 
-    memcpy(digits, param_1, 2);
+    if (strlen(param_1) != 11)
+        return 0;
+
+    memcpy(digits, param_1, 3);
     int iVar1 = atoi(digits);
     if ((((iVar1 == 333) || (iVar1 == 444)) || (iVar1 == 555)) ||
         (((iVar1 == 666 || (iVar1 == 777)) || ((iVar1 == 888 || (iVar1 == 999))))))
