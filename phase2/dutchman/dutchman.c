@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   disable_buffering(stderr);
 
   uint8_t tape[128];
-  strcpy((char*)tape, "WOW! Dutchman said the flag is: ");
+  strcpy((char*)tape, "WOW!");
 
   uint8_t *ptr = tape;
   FILE *f = fopen("flag.txt", "r");
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
     } else if(a == 0 && b == 1) {
       ptr--;
     } else if(a == 1 && b == 0) {
-      printf("%08b", *ptr);
+      printf("%08b\n", *ptr);
     } else if(a == 1 && b == 1) {
       uint8_t value = (r() << 7) | (r() << 6) | (r() << 5) | (r() << 4) | (r() << 3) | (r() << 2) | (r() << 1) | (r() << 0);
       *ptr = value;
