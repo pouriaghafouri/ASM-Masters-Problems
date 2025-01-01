@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define disable_buffering(_fd) setvbuf(_fd, NULL, _IONBF, 0)
+
 void print_flag(){
     char flag[] = "ASM{C0ng7@tu1@ti#n5_N30}";
     printf("%s\n", flag);
@@ -13,6 +15,8 @@ long long int get_number(){
 }
 
 int main(){
+    disable_buffering(stdin);
+    disable_buffering(stdout);
     srand(time(0) / 5);
     printf("Enter the password: ");
     long long int number = get_number();

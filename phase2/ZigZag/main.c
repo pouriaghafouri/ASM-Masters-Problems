@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define disable_buffering(_fd) setvbuf(_fd, NULL, _IONBF, 0)
+
 char a[] = {'A','X','M','F','S','C','c','H','R','E','_','8','1','3','p','4','E','I','f','n','4','C','}',0};
 char b[] = {'H','S','X','{','v','3','V','U','Z','3','Q','S','w','m','R','L','C','_','5','L','K','G',0,0};
 
@@ -24,6 +26,8 @@ void get_flag(char *str, unsigned long input){
 }
 
 int main(){
+    disable_buffering(stdin);
+    disable_buffering(stdout);
     char easy_string[] = "MY name IS linus TORVALDS and I am YOUR god!";
     int sum = 0;
     for(int i=0;i<strlen(easy_string);i++){
