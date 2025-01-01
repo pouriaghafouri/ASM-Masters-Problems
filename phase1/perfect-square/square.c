@@ -5,9 +5,17 @@ int main(){
     int n;
     scanf("%d", &n);
 
-    int root = sqrt(n);
-    if (n == root * root)
-        printf("YES");
-    else
-        printf("NO");
+    int flag = 1;
+    for (int i = 1; i < 10001; i++){
+        if (i * i == n){
+            flag = 0;
+            printf("YES\n");
+            break;
+        }
+    }
+
+    if (flag)
+        printf("NO\n");
+
+    return 0;
 }
