@@ -64,7 +64,7 @@ void gen_colin(int tid) {
     input << x1 << ' ' << y1 << ' ' << r1 << std::endl;
     input << x2 << ' ' << y2 << ' ' << r2 << std::endl;
 
-    std::ofstream output("test" + std::to_string(tid) + ".in");
+    std::ofstream output("test" + std::to_string(tid) + ".out");
     int res = check_int(x1, x2, y1, y2, r1, r2);
 
     if (res == 0)
@@ -84,7 +84,7 @@ void gen_norm(int tid, int x1, int x2, int y1, int y2, int r1, int r2) {
     input << x1 << ' ' << y1 << ' ' << r1 << std::endl;
     input << x2 << ' ' << y2 << ' ' << r2 << std::endl;
 
-    std::ofstream output("test" + std::to_string(tid) + ".in");
+    std::ofstream output("test" + std::to_string(tid) + ".out");
     int res = check_int(x1, x2, y1, y2, r1, r2);
 
     if (res == 0)
