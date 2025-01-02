@@ -1,0 +1,22 @@
+خروجی تابع C زیر، معادل حاصل عملیات یک instruction معماری x86 است.
+unsigned int unknown(unsigned int input) {
+    union {
+        unsigned int u[2];
+        double d;
+    } temp;
+
+    temp.u[__FLOAT_WORD_ORDER == LITTLE_ENDIAN] = MISSING;
+    temp.u[__FLOAT_WORD_ORDER != LITTLE_ENDIAN] = input;
+    temp.d -= 4503599627370496.0;
+
+    return (temp.u[__FLOAT_WORD_ORDER == LITTLE_ENDIAN] >> 20) - 0x3FF;
+}
+ابتدا با تحلیل تابع، حدس بزنید این کد تلاش می‌کند چه عملیاتی انجام دهد. سپس مقدار مناسب ثابت MISSING برای این که این عملیات به درستی انجام شود را به دست آورید. نهایتا، با بررسی instructionهای x86 لیست‌شده در این سایت (https://www.felixcloutier.com/x86/)، instructionیی که معادل این قطعه کد است را بیابید.
+
+پرچم، حاصل نوشتن مقدار ثابت MISSING به‌صورت hexadecimal و شامل 0x، و mnemonic دستوری که یافته‌اید به‌صورت lowercase و به فرمت زیر است:
+ASM{<lowercase-mnemonic>_0x<lowercase-hexadecimal-missing-value>}
+مثلا مقدار زیر می‌توانست یک پرچم باشد:
+ASM{mov_0xdeadbeef}
+
+راهنمایی اول: دستوری که به دنبال آن هستید، دستوری‌ست که در summary آن کلمه‌ی bit آمده‌است و دو operand دارد که در یکی می‌نویسد و از دیگری می‌خواند.
+راهنمایی دوم: برای فهم سریع‌تر کد، پیشنهاد می‌شود به استاندارد IEEE 754 برای اعداد floating point نگاهی بیاندازید.
